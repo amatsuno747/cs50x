@@ -388,6 +388,7 @@ async function bindPage(analyzer) {
 function toggleDebug() {
     guiState.output.showPoints = ! guiState.output.showPoints ;
     // do not draw guiState.output.showSkeleton = true;
+    document.getElementById('debug').innerHTML = guiState.output.showPoints ? 'Debug Off' : 'Debug On';
 }
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
