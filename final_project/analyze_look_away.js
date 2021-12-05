@@ -42,6 +42,9 @@ class LookAway {
             printStatus('Detecting... ^_^');
         }
         console.log("checkState: " + state + ", list_count: " + this._listState.length);
+        if (guiState.output.showPoints) {
+            printStatus("checkState: " + state + ", list_count: " + this._listState.length);
+        }
     }
     analyzePose(keypoints) {
         /* convert data structure */
