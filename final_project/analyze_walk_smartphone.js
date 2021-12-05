@@ -38,9 +38,12 @@ class WalkSmartphone {
             }
         } else {
             this._speechOnce = false;
-            printStatus('Detecting... ^_^');
+            if (guiState.output.showPoints) {
+                printStatus('Detecting...' + state + ',' + this._listState.length);
+            } else {
+                printStatus('Detecting... ^_^');
+            }
         }
-        console.log("checkState: " + state + ", list_count: " + this._listState.length);
     }
     is_wrist_in_body_area(w, rs, ls, rh, lh) {
         console.log("is_wrist_in_body_area(x): " + w.x + "," + rs.x + "," + ls.x + "," + rh.x + "," + lh.x);

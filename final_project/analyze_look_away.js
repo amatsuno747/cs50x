@@ -39,11 +39,11 @@ class LookAway {
             }
         } else {
             this._speechOnce = false;
-            printStatus('Detecting... ^_^');
-        }
-        console.log("checkState: " + state + ", list_count: " + this._listState.length);
-        if (guiState.output.showPoints) {
-            printStatus("checkState: " + state + ", list_count: " + this._listState.length);
+            if (guiState.output.showPoints) {
+                printStatus('Detecting...' + state + ',' + this._listState.length);
+            } else {
+                printStatus('Detecting... ^_^');
+            }
         }
     }
     analyzePose(keypoints) {
