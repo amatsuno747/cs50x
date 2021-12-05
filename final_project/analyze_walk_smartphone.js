@@ -10,7 +10,7 @@ class WalkSmartphone {
         this._threshold_AwayNum = 0.5; // 50%
         this._listState = [];
         this._speechOnce = false;
-        this.start_message = "Detection of smartphone while walking started.";
+        this.start_message = "Detection of looking at smartphone started.";
     }
     checkState(state = "Unknown") {
         /* first guidance */
