@@ -38,6 +38,7 @@ class WalkSmartphone {
             }
         } else {
             this._speechOnce = false;
+            printStatus('Detecting... ^_^');
         }
         console.log("checkState: " + state + ", list_count: " + this._listState.length);
     }

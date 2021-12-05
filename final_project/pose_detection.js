@@ -361,7 +361,6 @@ async function bindPage(analyzer) {
     const obj = document.getElementById("video");
     videoWidth = obj.getBoundingClientRect().width;
     videoHeight = obj.getBoundingClientRect().height;
-    console.log("w,h:" + videoWidth + "," + videoHeight);
     // main process
     text2speech(analyzer.start_message + " Please allow camera and wait while until camera is ready.");
     const net = await posenet.load({
