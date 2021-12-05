@@ -7,7 +7,7 @@ class LookAway {
     constructor(type) {
         this._threshold_conf = 0.1;
         this._ratio_eye_ear = 3.0;
-        this._threshold_AwayTime = 3000; // ms
+        this._threshold_AwayTime = 1000; // ms
         this._threshold_AwayNum = 0.5; // 50%
         this._listState = [];
         this._speechOnce = false;
@@ -56,15 +56,17 @@ class LookAway {
         /* check */
         if (conf.rightEar && conf.rightEye && conf.nose && conf.leftEye && conf.leftEar) {
             this.checkState("Good"); /* All OK */
-        } else if ((!conf.rightEar && !conf.rightEye && conf.nose && conf.leftEye && conf.leftEar) ||
+        } else if ((!conf.rightEar && conf.nose && conf.leftEye && conf.leftEar) /* Simple detection */
+                   /* (!conf.rightEar && !conf.rightEye && conf.nose && conf.leftEye && conf.leftEar) ||
                    (conf.rightEye && conf.nose && conf.leftEye && conf.leftEar &&
                    (((obj.leftEar.position.x - obj.rightEye.position.x) /
-                     (obj.leftEye.position.x - obj.rightEye.position.x)) > this._ratio_eye_ear)) ) {
+                     (obj.leftEye.position.x - obj.rightEye.position.x)) > this._ratio_eye_ear))*/ ) {
             this.checkState("Look Away Right");
-        } else if ((conf.rightEar && conf.rightEye && conf.nose && !conf.leftEye && !conf.leftEar) ||
+        } else if ((conf.rightEar && conf.rightEye && conf.nose && !conf.leftEar) /* Simple detection */
+                   /*(conf.rightEar && conf.rightEye && conf.nose && !conf.leftEye && !conf.leftEar) ||
                    (conf.rightEar && conf.rightEye && conf.nose && conf.leftEye &&
                    (((obj.leftEye.position.x - obj.rightEar.position.x) /
-                     (obj.leftEye.position.x - obj.rightEye.position.x)) > this._ratio_eye_ear)) ) {
+                     (obj.leftEye.position.x - obj.rightEye.position.x)) > this._ratio_eye_ear))*/ ) {
             /* Look Away Left */
             this.checkState("Look Away Left");
         } else if (!conf.nose) {
