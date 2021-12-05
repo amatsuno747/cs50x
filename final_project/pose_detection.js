@@ -24,8 +24,8 @@
  * Variables and parameters
  */
 
-const videoWidth = 600;
-const videoHeight = 500;
+const videoWidth = 640;
+const videoHeight = 480;
 
 const defaultQuantBytes = 2;
 
