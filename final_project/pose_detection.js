@@ -24,8 +24,8 @@
  * Variables and parameters
  */
 
-const videoWidth = 640;
-const videoHeight = 480;
+var videoWidth = 640;
+var videoHeight = 480;
 
 const defaultQuantBytes = 2;
 
@@ -357,6 +357,12 @@ function detectPoseInRealTime(video, net, analyzer) {
  *  and setting off the detectPoseInRealTime function.
  */
 async function bindPage(analyzer) {
+    // get windows size
+    const obj = document.getElementById("video");
+    videoWidth = obj.getBoundingClientRect().width;
+    videoHeight = obj.getBoundingClientRect().height;
+    console.log("w,h:" + videoWidth + "," + videoHeight);
+    // main process
     text2speech(analyzer.start_message + " Please allow camera and wait while until camera is ready.");
     const net = await posenet.load({
         architecture: guiState.input.architecture,

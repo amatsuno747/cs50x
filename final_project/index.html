@@ -35,8 +35,7 @@
 
     <main class="container">
       <div id="status" class="statusLine"> Ready </div>
-      <!-- video playsinline id="video" style="" width="100%"  poster="poster.png"> </video -->
-      <video playsinline id="video" style="" width="640" height="480" poster="poster.png"> </video>
+      <video playsinline id="video" poster="poster.png"> </video>
       <canvas id="output" />
     </main>
 
@@ -63,6 +62,13 @@
     <script src="analyze_walk_smartphone.js"></script>
     <!-- process of pose detection -->
     <script src="pose_detection.js"></script>
+    
+    <!-- hide navbar menu after click menu item -->
+    <script>
+    $('.navbar-nav>li>a , .dropdown-menu>a').on('click', function(){
+        $('.navbar-collapse').collapse('hide');
+    });
+    </script>
 
   </body>
 </html>
